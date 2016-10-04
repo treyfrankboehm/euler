@@ -1,22 +1,27 @@
 #!/usr/bin/env python
 
-limit = int(2e6)
+# Definitely not the most efficient, but it gets it done.
 
-numbers    = range(limit)
-numbers[1] = 0 # 1 is not prime
+def collatzTerms(number):
+	count = 1
+	while number != 1:
+		if number % 2 == 0:
+			number = number/2
+			count += 1
+		else:
+			number = number*3 + 1
+			count += 1
+	return count
 
-n = 2
-while n < limit:
-    x = 2*n # n is a prime number, but 2n has n as a factor
-    while x < limit:
-        numbers[x] = 0
-        x += n
-    # No use in using already-eliminated non-primes
-    n += 1
-    try:
-        while numbers[n] == 0:
-            n += 1
-    # The last prime under the limit would return an index error
-    except:
-        continue
-print sum(numbers)
+if __name__ == "__main__":
+	count   = 1
+	collatz = 0
+	highestCount   = 0
+	highestCollatz = 0
+	while count < 1000000:
+		collatz = collatzTerms(count)
+		if collatz > highestCollatz:
+			highestCount   = count
+			highestCollatz = collatz
+		count += 1
+	print highestCount

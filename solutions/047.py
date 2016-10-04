@@ -1,22 +1,16 @@
 #!/usr/bin/env python
 
-limit = int(2e6)
+# Pretty inefficient
 
-numbers    = range(limit)
-numbers[1] = 0 # 1 is not prime
+from euler import factor, isPrime
 
-n = 2
-while n < limit:
-    x = 2*n # n is a prime number, but 2n has n as a factor
-    while x < limit:
-        numbers[x] = 0
-        x += n
-    # No use in using already-eliminated non-primes
-    n += 1
-    try:
-        while numbers[n] == 0:
-            n += 1
-    # The last prime under the limit would return an index error
-    except:
-        continue
-print sum(numbers)
+count = 1
+while 1:
+	f1 = map(isPrime, factor(count)).count(True)
+	f2 = map(isPrime, factor(count+1)).count(True)
+	f3 = map(isPrime, factor(count+2)).count(True)
+	f4 = map(isPrime, factor(count+3)).count(True)
+	if f1 >= 4 and f2 >= 4 and f3 >= 4 and f4 >= 4:
+		print count
+		break
+	count += 1

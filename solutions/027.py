@@ -1,22 +1,19 @@
 #!/usr/bin/env python
 
-limit = int(2e6)
+def isPrime(n):
+	for x in range(2,int(n**.5)+1):
+		if n % x == 0: return False
+	return True
 
-numbers    = range(limit)
-numbers[1] = 0 # 1 is not prime
-
-n = 2
-while n < limit:
-    x = 2*n # n is a prime number, but 2n has n as a factor
-    while x < limit:
-        numbers[x] = 0
-        x += n
-    # No use in using already-eliminated non-primes
-    n += 1
-    try:
-        while numbers[n] == 0:
-            n += 1
-    # The last prime under the limit would return an index error
-    except:
-        continue
-print sum(numbers)
+max = 0
+coefs = 0
+for a in range(-1000,1000):
+	for b in range(-1000,1000):
+		n = 0
+		while True:
+			q = n**2+a*n+b
+			if q < 0: break
+			if isPrime(q): n += 1
+			else: break
+			if n > max: max = n; coefs = a*b
+print coefs

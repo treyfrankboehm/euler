@@ -1,22 +1,21 @@
 #!/usr/bin/env python
 
-limit = int(2e6)
+from euler import isPrime
+from itertools import permutations
 
-numbers    = range(limit)
-numbers[1] = 0 # 1 is not prime
+primes = [prime for prime in range(1488,10000) if isPrime(prime)]
 
-n = 2
-while n < limit:
-    x = 2*n # n is a prime number, but 2n has n as a factor
-    while x < limit:
-        numbers[x] = 0
-        x += n
-    # No use in using already-eliminated non-primes
-    n += 1
-    try:
-        while numbers[n] == 0:
-            n += 1
-    # The last prime under the limit would return an index error
-    except:
-        continue
-print sum(numbers)
+def isPermutation(x, y, z):
+	x = str(x); y = str(y); z = str(z)
+	p = [''.join(item) for item in list(permutations(x))]
+	if y in p and z in p: return True
+	return False
+
+for x in primes:
+	y = x + 3330
+	if isPrime(y):
+		z = y + 3330
+		if isPrime(z):
+			if isPermutation(x, y, z):
+				print str(x) + str(y) + str(z)
+				break

@@ -1,22 +1,14 @@
 #!/usr/bin/env python
 
-limit = int(2e6)
+def isPentagonal(x):
+	return (((24*x+1)**.5+1)/6) % 1 == 0.0
 
-numbers    = range(limit)
-numbers[1] = 0 # 1 is not prime
+p = [n*(3*n-1)/2 for n in range(1,10000)]
 
-n = 2
-while n < limit:
-    x = 2*n # n is a prime number, but 2n has n as a factor
-    while x < limit:
-        numbers[x] = 0
-        x += n
-    # No use in using already-eliminated non-primes
-    n += 1
-    try:
-        while numbers[n] == 0:
-            n += 1
-    # The last prime under the limit would return an index error
-    except:
-        continue
-print sum(numbers)
+for i in range(len(p)):
+	for j in range(i):
+		diff = p[i] - p[j]
+		sum  = p[i] + p[j]
+		if isPentagonal(diff) and isPentagonal(sum):
+			print max((p[i]-p[j]), (p[j]-p[i]))
+			exit()

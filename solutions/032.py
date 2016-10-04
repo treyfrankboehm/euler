@@ -1,22 +1,18 @@
 #!/usr/bin/env python
 
-limit = int(2e6)
+def isPandigital(multiplicand, multiplier, product):
+	number = str(multiplicand)+str(multiplier)+str(product)
+	if len(number) != 9: return False
+	for n in range(1,10):
+		if not str(n) in number: return False
+	return True
 
-numbers    = range(limit)
-numbers[1] = 0 # 1 is not prime
+pandigitals = []
 
-n = 2
-while n < limit:
-    x = 2*n # n is a prime number, but 2n has n as a factor
-    while x < limit:
-        numbers[x] = 0
-        x += n
-    # No use in using already-eliminated non-primes
-    n += 1
-    try:
-        while numbers[n] == 0:
-            n += 1
-    # The last prime under the limit would return an index error
-    except:
-        continue
-print sum(numbers)
+for x in range(2500):
+	for y in range(1000):
+		z = x*y
+		if isPandigital(x, y, z) and not z in pandigitals:
+			pandigitals.append(z)
+
+print sum(pandigitals)

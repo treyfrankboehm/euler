@@ -1,22 +1,14 @@
 #!/usr/bin/env python
 
-limit = int(2e6)
+def hyp(leg1, leg2):
+	c = (float(leg1**2) + leg2**2)**.5
+	if c % 1 != 0.0: return 1000
+	return int(c)
 
-numbers    = range(limit)
-numbers[1] = 0 # 1 is not prime
+hyps = []
+for a in range(1,500):
+	for b in range(1,a):
+		t = a + b + hyp(a, b)
+		if t <= 1000: hyps.append(t)
 
-n = 2
-while n < limit:
-    x = 2*n # n is a prime number, but 2n has n as a factor
-    while x < limit:
-        numbers[x] = 0
-        x += n
-    # No use in using already-eliminated non-primes
-    n += 1
-    try:
-        while numbers[n] == 0:
-            n += 1
-    # The last prime under the limit would return an index error
-    except:
-        continue
-print sum(numbers)
+print max(set(hyps), key=hyps.count)

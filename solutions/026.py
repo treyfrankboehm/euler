@@ -1,22 +1,13 @@
 #!/usr/bin/env python
 
-limit = int(2e6)
+from euler import isPrime
 
-numbers    = range(limit)
-numbers[1] = 0 # 1 is not prime
-
-n = 2
-while n < limit:
-    x = 2*n # n is a prime number, but 2n has n as a factor
-    while x < limit:
-        numbers[x] = 0
-        x += n
-    # No use in using already-eliminated non-primes
-    n += 1
-    try:
-        while numbers[n] == 0:
-            n += 1
-    # The last prime under the limit would return an index error
-    except:
-        continue
-print sum(numbers)
+number = 997
+while number >= 1:
+	if isPrime(number):
+		i = 1
+		while ((10**i)-1) % number != 0:
+			i += 1
+		if (number - i) == 1: break
+	number -= 2
+print number

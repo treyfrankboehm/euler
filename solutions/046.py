@@ -1,22 +1,16 @@
 #!/usr/bin/env python
 
-limit = int(2e6)
+from euler import isPrime
 
-numbers    = range(limit)
-numbers[1] = 0 # 1 is not prime
+primes = [prime for prime in range(10000) if isPrime(prime)]
 
-n = 2
-while n < limit:
-    x = 2*n # n is a prime number, but 2n has n as a factor
-    while x < limit:
-        numbers[x] = 0
-        x += n
-    # No use in using already-eliminated non-primes
-    n += 1
-    try:
-        while numbers[n] == 0:
-            n += 1
-    # The last prime under the limit would return an index error
-    except:
-        continue
-print sum(numbers)
+def goldbach(number):
+	for prime in primes:
+		for square in range(40):
+			if prime + 2*square**2 == number: return True
+	return False
+
+count = 9
+while 1:
+	if not goldbach(count): print count; break
+	count += 2
