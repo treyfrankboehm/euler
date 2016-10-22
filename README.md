@@ -1,2 +1,2 @@
 # euler
-My solutions to Project Euler problems. aoeu
+My solutions to Project Euler problems
