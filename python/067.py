@@ -104,19 +104,19 @@ triangle = [
 ]
 
 def greater(upper, lower1, lower2):
-	if upper + lower1 > upper + lower2: return upper + lower1
-	else: return upper + lower2
+    if upper + lower1 > upper + lower2: return upper + lower1
+    else: return upper + lower2
 
 def collapse():
-	try:
-		lowerRow = triangle[-1]
-		upperRow = triangle[-2]
-		for i in range(len(upperRow)):
-			upperRow[i] = greater(upperRow[i], lowerRow[i], lowerRow[i+1])
-		del triangle[-1]
-	except:
-		print triangle[0][0]
-		del triangle[-1]
+    try:
+        lowerRow = triangle[-1]
+        upperRow = triangle[-2]
+        for i in range(len(upperRow)):
+            upperRow[i] = greater(upperRow[i], lowerRow[i], lowerRow[i+1])
+        del triangle[-1]
+    except:
+        print triangle[0][0]
+        del triangle[-1]
 
 while len(triangle) > 0:
-	collapse()
+    collapse()

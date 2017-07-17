@@ -6,5 +6,5 @@ names = sorted(names)
 
 score = 0
 for name in names:
-	score += sum([ord(x)-64 for x in name]) * (names.index(name)+1)
+    score += sum([ord(x)-64 for x in name]) * (names.index(name)+1)
 print score

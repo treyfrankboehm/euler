@@ -8,3 +8,11 @@ isPrime n
 
 rupSqrt :: Integer -> Integer
 rupSqrt n = ceiling(sqrt(fromInteger(n)))
+
+testNum = 600851475143
+
+factors = [x | x <- [2..rupSqrt testNum], mod testNum x == 0]
+primeFactors = [x | x <- factors, isPrime x]
+largest = last primeFactors
+
+main = do print largest
