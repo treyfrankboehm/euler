@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 a = 1
 b = 0
@@ -10,4 +10,6 @@ while a < 4000000:
     b = c
     if a % 2 == 0:
         total += a
-print total
+
+print(total)
+

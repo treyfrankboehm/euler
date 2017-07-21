@@ -1,0 +1,6 @@
+haskell/*.hi
+haskell/*.o
+c/*.out
+python/__pycache__
+python/*.pyc
+

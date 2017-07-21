@@ -5,4 +5,7 @@ squareSum :: Integer -> Integer
 squareSum n = (sum [1..n])^2
 
 upper = 100
-result = (squareSum upper) - (sumSquare upper)
+solution = (squareSum upper) - (sumSquare upper)
+
+main = do print solution
+

@@ -1,8 +1,8 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 limit = int(2e6)
 
-numbers    = range(limit)
+numbers = list(range(limit))
 numbers[1] = 0 # 1 is not prime
 
 n = 2
@@ -19,4 +19,6 @@ while n < limit:
     # The last prime under the limit would return an index error
     except:
         continue
-print sum(numbers)
+
+print(sum(numbers))
+

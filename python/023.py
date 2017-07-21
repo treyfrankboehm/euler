@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import euler
 
@@ -18,4 +18,5 @@ for a in abundant:
         
 nums = list(set(nums))
 
-print sum(range(limit)) - sum(nums)
+print(sum(range(limit)) - sum(nums))
+

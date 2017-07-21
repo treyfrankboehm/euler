@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 def oneTwenty(n):
     for x in range(1,21):
@@ -8,5 +8,8 @@ def oneTwenty(n):
 step = 2*3*5*7*11*13*17*19
 count = step
 while True:
-    if oneTwenty(count) == True: print count; break
+    if oneTwenty(count) == True: break
     count += step
+
+print(count);
+

@@ -14,3 +14,4 @@ triangulars = map triangle [1..]
 solution = head [x | x <- triangulars, length (divisors x) >= 500]
 
 main = do print solution
+

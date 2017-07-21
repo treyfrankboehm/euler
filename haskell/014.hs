@@ -4,7 +4,10 @@ collatz n
     | even n = 1 + collatz(toInteger(ceiling(fromInteger(n)/2)))
     |  odd n = 1 + collatz(3*n+1)
 
-chains = [(num, collatz num) | num <- [1..1000]]
+chains = [(num, collatz num) | num <- [1..1000000]]
 
--- Need to find the maximum collatz num and print the num
+highestChain = maximum ([chain | (num, chain) <- chains])
+solution = take 1 [num | (num, chain) <- chains, chain == highestChain]
+
+main = do print solution
 

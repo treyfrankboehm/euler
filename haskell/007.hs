@@ -10,4 +10,7 @@ isPrime n
     | otherwise = False
 
 primes = [x | x <- [1..], isPrime x]
-main = do print (last (take 10001 primes))
+solution = last (take 10001 primes)
+
+main = do print solution
+
