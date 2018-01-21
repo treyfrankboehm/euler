@@ -13,5 +13,6 @@ for i in range(len(grid)):
     if row < 18: down = grid[i] * grid[i+20] * grid[i+40] * grid[i+60]
     large = max([across, down, downleft, downright])
     if large > highest: highest = large
-print highest
+
+print(highest)
 

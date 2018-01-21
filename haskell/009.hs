@@ -8,10 +8,16 @@ rupSqrt :: Integer -> Integer
 rupSqrt n = ceiling(sqrt(fromInteger(n)))
 
 -- Because a and b must be less than c, we can set an upper bound
+upper :: Integer
 upper = 500
 
+triplets :: [(Integer, Integer, Integer)]
 triplets = [(a, b, rupSqrt (a^2+b^2)) | a <- [1..upper], b <- [1..upper]]
+
+triples :: [(Integer, Integer, Integer)]
 triples = filter isPtriple triplets
+
+solution :: Integer
 solution = head [a*b*c | (a, b, c) <- triples, a+b+c == 1000]
 
 main = do print solution

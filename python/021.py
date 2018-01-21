@@ -9,4 +9,5 @@ while count < 10000:
     b = sum(euler.factor(a))
     if b == count and a != b: total += a
     count += 1
-print total
+print(int(total))
+
