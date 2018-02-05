@@ -1,5 +1,6 @@
 haskell/*.hi
 haskell/*.o
+haskell/*.bin
 haskell/hs-build-files
 haskell/*.out
 c/*.out
