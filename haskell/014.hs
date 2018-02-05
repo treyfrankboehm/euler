@@ -6,7 +6,7 @@ collatz n
 
 chains = [(num, collatz num) | num <- [1..1000000]]
 highestChain = maximum ([chain | (num, chain) <- chains])
-solution = take 1 [num | (num, chain) <- chains, chain == highestChain]
+solution = [num | (num, chain) <- chains, chain == highestChain] !! 0
 
 main = do print solution
 
