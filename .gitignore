@@ -1,8 +1,9 @@
 haskell/*.hi
 haskell/*.o
 haskell/*.bin
-haskell/hs-build-files
 haskell/*.out
+haskell/results.txt
+haskell/hs-build-files
 c/*.out
 python/__pycache__
 python/*.pyc

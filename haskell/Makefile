@@ -6,14 +6,14 @@ $(PROGRAM): $(SRC)
 	@echo "  GHC  " $(SRC)
 	@ghc -o $(PROGRAM) $(SRC)
 
+all: clean
+	@echo "  Testing all solutions"
+	@./test.py all
+
 test: $(PROGRAM)
 	@time ./$(PROGRAM)
 
 clean:
 	@echo "  Cleaning"
-	@rm -f hs-build-files/*
-	@rm -f $(PROGRAM) $(NUM).hi $(NUM).o
-
-spotless: clean
-	@echo "  Removing all executable, intermediate, and object files"
 	@rm -f *.bin *.hi *.o
+
