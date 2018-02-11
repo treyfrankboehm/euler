@@ -1,19 +1,30 @@
+LANG=haskell
 NUM=007
 SRC=$(NUM).hs
 PROGRAM=$(NUM).bin
+TEST=test.py
 
-$(PROGRAM): $(SRC)
-	@echo "  GHC  " $(SRC)
-	@ghc -o $(PROGRAM) $(SRC)
+$(LANG)/$(PROGRAM): $(LANG)/$(SRC)
+	@echo "  GHC  " $(LANG)/$(SRC)
+	@ghc -o $(LANG)/$(PROGRAM) $(LANG)/$(SRC)
 
-all: clean
-	@echo "  Testing all solutions"
-	@./test.py all
+hs: clean
+	@echo "  Testing all Haskell solutions"
+	@./$(TEST) hs
 
-test: $(PROGRAM)
-	@time ./$(PROGRAM)
+py: clean
+	@echo "  Testing all Python solutions"
+	@./$(TEST) py
+
+c: clean
+	@echo "  Testing all C solutions"
+	@./$(TEST) c
+
+test: $(LANG)/$(SRC)
+	@./$(TEST) $(SRC)
 
 clean:
 	@echo "  Cleaning"
-	@rm -f *.bin *.hi *.o
+	@rm -f haskell/*.bin haskell/*.hi haskell/*.o
+	@rm -f c/*.out
 

@@ -1,10 +1,13 @@
+c/*.out
 hs/*.hi
 hs/*.o
 hs/*.bin
 hs/*.out
-hs/results.txt
 hs/hs-build-files
-c/*.out
-python/__pycache__
-python/*.pyc
+problems
+py/__pycache__
+py/*.pyc
+results-c.txt
+results-hs.txt
+results-py.txt
 

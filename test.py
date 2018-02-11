@@ -1,67 +1,66 @@
 #!/usr/bin/env python3
 
 import glob
-import os
+#import os
 import subprocess as sp
 import sys
 import time
 
-# Zero-pad the beginning to match my filename formatting
-def zeroPad(num):
-    num = str(num)
-    if len(num) == 1:
-        num = "00%s" % num
-    elif len(num) == 2:
-        num = "0%s" % num
-    return num
+def extension(filename):
+    return filename.split('.')[1]
+
+def testHaskell(filename):
+    compileCmd = "ghc -o %s.bin -i hs/Euler.hs %s --make -j2" % \
+            (filename, filename)
+    runCmd = "./%s.bin" % (filename)
+    return run(compileCmd, runCmd)
+
+def testPython(filename):
+    compileCmd = "sleep 0"
+    runCmd = "pypy %s" % (filename)
+    return run(compileCmd, runCmd)
+
+def testC(filename):
+    compileCmd = "gcc -lm -o %s.out %s" % (filename, filename)
+    runCmd = "./%s.out" % filename
+    return run(compileCmd, runCmd)
 
 def run(compileCmd, runCmd):
     sp.run(compileCmd.split(' '))
     start = float(time.perf_counter())
-    child = sp.Popen(runCmd, stdout=sp.PIPE)
+    child = sp.Popen(runCmd.split(' '), stdout=sp.PIPE)
     result = int(child.communicate()[0])
     run_time = float(time.perf_counter()-start)
     return [result, run_time]
 
-def testHaskell(num):
-    compileCmd = "ghc -o %s.hs.bin %s.hs" % (num, num)
-    runCmd = "./%s.hs.bin" % (num)
-    return run(compileCmd, runCmd)
+def getResults(filename):
+    lang = extension(filename)
+    if lang == "hs":
+        [result, run_time] = testHaskell(filename)
+    elif lang == "py":
+        [result, run_time] = testPython(filename)
+    elif lang == "c":
+        [result, run_time] = testC(filename)
+    else:
+        print("Unable to test file.")
+        exit(1)
 
-def testPython(num):
-    return [0, 0]
+    return ("%s in %.3f seconds (result: %d)" % \
+            (filename, run_time, result))
 
-def testC(num):
-    return [0, 0]
-
-def getResults(num, lang):
-    if lang.lower() in ("hs", "haskell"):
-        [result, run_time] = testHaskell(num)
-    elif lang.lower() in ("py", "python"):
-        [result, run_time] = testPython(num)
-    elif lang.lower() in ("c"):
-        [result, run_time] = testC(num)
-
-    return ("%s.hs in %.3f seconds (result: %d)" % \
-            (num, run_time, result))
-
-def progLang(filename):
-    num = filename[0:3]
-    lang = filename[4:]
-    return [num, lang]
-
-def testAll():
-    outfile = open("results.txt", 'w')
+def testAll(lang):
+    outfilename = "results-%s.txt" % lang
+    outfile = open(outfilename, 'w')
     start_time = float(time.perf_counter())
     test_count = 0;
-    for filename in sorted(glob.glob("[0-9][0-9][0-9].hs")):
-        [num, lang] = progLang(filename)
-        results = getResults(num, lang)
+    for filename in sorted(glob.glob("%s/[0-9][0-9][0-9].%s" % \
+                          (lang, lang))):
+        results = getResults(filename)
         print(results)
         outfile.write(results + '\n')
         test_count += 1
     total_time = float(time.perf_counter()) - start_time
-    totals = "Ran and compiled %d solutions is %.3f seconds\n" % \
+    totals = "Compiled and ran %d solutions is %.3f seconds\n" % \
             (test_count, total_time)
     print(totals)
     outfile.write(totals)
@@ -69,13 +68,15 @@ def testAll():
     exit(0)
 
 if __name__ == "__main__":
-    # Must be given a number to test
-    if len(sys.argv) == 1:
-        exit(1)
-
-    progNum = zeroPad(sys.argv[1])
-    if progNum == "all":
-        testAll()
+    progNum = sys.argv[1]
+    # If passed a language file type, test all solutions in that language
+    if progNum == "hs":
+        testAll("hs")
+    elif progNum == "py":
+        testAll("py")
+    elif progNum == "c":
+        testAll("c")
     else:
-        print(getResults(progNum, "hs"))
+        # Otherwise, test the specific program passed
+        print(getResults(progNum))
 
