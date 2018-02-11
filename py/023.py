@@ -6,7 +6,6 @@ limit = 28124
 
 nums = []
 abundant  = [num for num in range(12,limit) if euler.isAbundant(num)]
-print len(abundant)
 
 for a in abundant:
     for b in abundant:

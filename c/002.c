@@ -8,7 +8,6 @@ int main(void) {
     while (curr < 4e6) {
         if (curr % 2 == 0) {
             evenSum += curr;
-            printf("%d\n", curr);
         }
         next = prev+curr;
         prev = curr;

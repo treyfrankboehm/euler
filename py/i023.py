@@ -39,7 +39,6 @@ while a < max:
             break
         j += 1
     a += 1
-    print a
 
 print sum(range(max+1)) - sum(set(numbers))
 print sum(set(numbers))
