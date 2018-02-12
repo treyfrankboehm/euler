@@ -4,6 +4,7 @@ hs/*.o
 hs/*.bin
 hs/*.out
 hs/hs-build-files
+papi/
 problems
 py/__pycache__
 py/*.pyc
