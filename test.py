@@ -21,7 +21,8 @@ def testPython(filename):
     return run(compileCmd, runCmd)
 
 def testC(filename):
-    compileCmd = "gcc -lm -o %s.out %s" % (filename, filename)
+    compileCmd = "gcc -lm ./c/Euler.c -o %s.out %s" % (filename, filename)
+    print(compileCmd)
     runCmd = "./%s.out" % filename
     return run(compileCmd, runCmd)
 
