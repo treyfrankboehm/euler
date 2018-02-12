@@ -17,23 +17,19 @@ int Summable[28124] = {0};
 
 int main(void)
 {
-    long int total;
+    int total;
     int i;
 
     generateAbundant();
     
     findAbundantSums();
 
-    /* Start off assuming that NO number can be written as the sum of
-     * two abundant numbers (thanks for the formula, Gauss).
-     */
-    total = (Upper_Limit)*(Upper_Limit-1)/2;
     for (i = 0; i < Upper_Limit; i++) {
-        /* If we have a 1 in the number's position in Summable, it was
-         * create as a sum. Subtract it from the total.
+        /* If we have a 0 in the number's position in Summable, it was
+         * not created as a sum. Add it from the total.
          */
-        if (Summable[i]) {
-            total -= i;
+        if (!Summable[i]) {
+            total += i;
         }
     }
 
