@@ -26,7 +26,6 @@ while n < limit:
         continue
 numbers[2] = 0; numbers [5] = 0
 numbers = filter(lambda a: a != 0, numbers)
-print "PRIMES FOUND"
 
 def catPrimes(l):
     for x in l:
@@ -43,7 +42,7 @@ def catPrimes(l):
 for a in numbers:
     for b in numbers:
         if a == b: continue
-                if not (str(a) + str(b) in numbers) or not (str(b) + str(a) in numbers): continue
+        if not (str(a) + str(b) in numbers) or not (str(b) + str(a) in numbers): continue
         for c in numbers:
             if a == c or b == c: continue
             for d in numbers:
@@ -53,8 +52,5 @@ for a in numbers:
                     if d == e: break
                     p = (a,b,c,d,e)
                     if catPrimes(p):
-                        print a, b, c, d, e
                         print a+b+c+d+e
-                                                exit()
-            #print a, b, c, d, e
-    print a
+                        exit()

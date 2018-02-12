@@ -23,8 +23,6 @@ while n < limit:
         continue
 filter(lambda a: a != 0, numbers)
 
-print "Primes finally found"
-
 highest = 0
 count = 1
 while count < limit:
