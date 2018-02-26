@@ -21,7 +21,7 @@ int main(void)
     int i;
 
     generateAbundant();
-    
+
     findAbundantSums();
 
     for (i = 0; i < Upper_Limit; i++) {
