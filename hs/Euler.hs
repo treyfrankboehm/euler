@@ -7,6 +7,9 @@ collatz n
     | even n = 1 + collatz(div n 2)
     |  odd n = 1 + collatz(3*n+1)
 
+concatnums :: Integral a => a -> a -> [a]
+concatnums a b = concat [listify a, listify b]
+
 -- An (unsorted) list of a number's divisors. First grab all the pairs
 -- by looking at x and n/x up to the square root of n. Then look at the
 -- square root itself and add that on if it is a factor (if the number

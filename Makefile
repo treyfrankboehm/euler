@@ -1,4 +1,4 @@
-LANG=haskell
+LANG=hs
 NUM=007
 SRC=$(NUM).hs
 PROGRAM=$(NUM).bin
@@ -25,6 +25,6 @@ test: $(LANG)/$(SRC)
 
 clean:
 	@echo "  Cleaning"
-	@rm -f haskell/*.bin haskell/*.hi haskell/*.o
+	@rm -f hs/*.bin hs/*.hi hs/*.o
 	@rm -f c/*.out
 
