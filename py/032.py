@@ -15,4 +15,4 @@ for x in range(2500):
         if isPandigital(x, y, z) and not z in pandigitals:
             pandigitals.append(z)
 
-print sum(pandigitals)
+print(sum(pandigitals))

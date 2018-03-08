@@ -11,6 +11,6 @@ while 1:
     f3 = map(isPrime, factor(count+2)).count(True)
     f4 = map(isPrime, factor(count+3)).count(True)
     if f1 >= 4 and f2 >= 4 and f3 >= 4 and f4 >= 4:
-        print count
+        print(count)
         break
     count += 1

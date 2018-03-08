@@ -30,7 +30,7 @@ def collapse():
             upperRow[i] = greater(upperRow[i], lowerRow[i], lowerRow[i+1])
         del triangle[-1]
     except:
-        print triangle[0][0]
+        print(triangle[0][0])
         del triangle[-1]
 
 while len(triangle) > 0:

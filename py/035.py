@@ -10,7 +10,7 @@ def isCircularPrime(number):
 
 limit = int(1e6)
 
-numbers    = range(limit)
+numbers    = list(range(limit))
 numbers[1] = 0 # 1 is not prime
 
 n = 2
@@ -37,11 +37,11 @@ while i < limit:
             break
     i += 1
 
-filter(lambda a: a != 0, numbers)
+[a for a in numbers if a != 0]
 
 total = 2 # 2 and 5
 count = 0
 while count < len(numbers):
     if isCircularPrime(numbers[count]): total += 1
     count += 1
-print total
+print(total)

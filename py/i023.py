@@ -9,8 +9,8 @@ def isAbundant(number):
 
 abundantNumbers = [x for x in range(12,max) if isAbundant(x)]
 abundantCount = len(abundantNumbers)
-print abundantCount
-print "Abundant numbers found"
+print(abundantCount)
+print("Abundant numbers found")
 
 """
 numbers = []
@@ -40,6 +40,6 @@ while a < max:
         j += 1
     a += 1
 
-print sum(range(max+1)) - sum(set(numbers))
-print sum(set(numbers))
+print(sum(range(max+1)) - sum(set(numbers)))
+print(sum(set(numbers)))
 #print set(numbers)

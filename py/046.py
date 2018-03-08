@@ -12,5 +12,5 @@ def goldbach(number):
 
 count = 9
 while 1:
-    if not goldbach(count): print count; break
+    if not goldbach(count): print(count); break
     count += 2

@@ -5,7 +5,7 @@ grid = [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8, 
 highest = 0
 for i in range(len(grid)):
     column = i % 20 + 1
-    row = i / 20 + 1 
+    row = i / 20 + 1
     across = 0; down = 0; downleft = 0; downright = 0
     if column < 18: across = grid[i] * grid[i+1] * grid[i+2] * grid[i+3]
     if column < 18 and row < 18: downright = grid[i] * grid[i+21] * grid[i+42] * grid[i+63]

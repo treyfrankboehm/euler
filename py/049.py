@@ -17,5 +17,5 @@ for x in primes:
         z = y + 3330
         if isPrime(z):
             if isPermutation(x, y, z):
-                print str(x) + str(y) + str(z)
+                print(str(x) + str(y) + str(z))
                 break

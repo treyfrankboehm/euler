@@ -7,7 +7,7 @@ import time
 
 limit = int(1e4)
 
-numbers    = range(limit)
+numbers    = list(range(limit))
 numbers[1] = 0 # 1 is not prime
 
 n = 2
@@ -25,7 +25,7 @@ while n < limit:
     except:
         continue
 numbers[2] = 0; numbers [5] = 0
-numbers = filter(lambda a: a != 0, numbers)
+numbers = [a for a in numbers if a != 0]
 
 def catPrimes(l):
     for x in l:
@@ -52,5 +52,5 @@ for a in numbers:
                     if d == e: break
                     p = (a,b,c,d,e)
                     if catPrimes(p):
-                        print a+b+c+d+e
+                        print(a+b+c+d+e)
                         exit()

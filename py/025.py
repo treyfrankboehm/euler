@@ -9,4 +9,4 @@ while True:
     a += b
     b = oa
     count += 1
-    if len(str(a)) >= 1000: print count; break
+    if len(str(a)) >= 1000: print(count); break

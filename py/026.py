@@ -10,4 +10,4 @@ while number >= 1:
             i += 1
         if (number - i) == 1: break
     number -= 2
-print number
+print(number)

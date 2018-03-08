@@ -21,4 +21,4 @@ while count < 1000000:
         if isPalindromic(toBinary(count)):
             total += count
     count += 1
-print total
+print(total)

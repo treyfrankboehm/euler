@@ -17,4 +17,4 @@ while count < 10**4:
     n = multiples(count)
     if n > highest: highest = n
     count += 1
-print highest
+print(highest)

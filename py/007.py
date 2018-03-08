@@ -2,9 +2,13 @@
 
 from euler import isPrime
 
-count = 0
-x = 2
-while True:
-    if isPrime(x) == True: count += 1
-    if count == 10001: print x; break
-    x += 1
+num = 0
+i = 0
+while i < 10001:
+    num += 1
+    if isPrime(num):
+        # Only increment counter if the number is prime
+        i += 1
+
+print(num)
+

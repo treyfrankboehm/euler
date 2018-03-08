@@ -22,5 +22,5 @@ while a < upperBound:
     a += 1
 
 print(triples)
-print(sorted(sums))
-print(sorted(set(sums)))
+print((sorted(sums)))
+print((sorted(set(sums))))

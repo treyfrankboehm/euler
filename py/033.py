@@ -37,4 +37,4 @@ for num in range(10,100):
             pass
 
 f = list(str(Fraction(nums, dens)))
-print ''.join(f[f.index('/')+1:])
+print(''.join(f[f.index('/')+1:]))

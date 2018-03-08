@@ -8,4 +8,4 @@ while step < 1001:
         on += step
         total += on
     step += 2
-print total
+print(total)

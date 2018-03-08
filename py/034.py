@@ -15,4 +15,4 @@ while count < 100000:
     if count == digitFactorial(count):
         total += count
     count += 1
-print total
+print(total)

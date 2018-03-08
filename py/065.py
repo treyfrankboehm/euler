@@ -47,4 +47,4 @@ for i in range(len(fractionTerms)):
     new = prev + on*fractionTerms[i]
     prev, on = on, new
 
-print(euler.sumDigits(new))
+print((euler.sumDigits(new)))

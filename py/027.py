@@ -16,4 +16,4 @@ for a in range(-1000,1000):
             if isPrime(q): n += 1
             else: break
             if n > max: max = n; coefs = a*b
-print coefs
+print(coefs)

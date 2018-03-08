@@ -24,4 +24,4 @@ if __name__ == "__main__":
             highestCount   = count
             highestCollatz = collatz
         count += 1
-    print highestCount
+    print(highestCount)

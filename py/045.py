@@ -11,4 +11,4 @@ while total < 3:
         total += 1
     step += 4
     count += step
-print count
+print(count)

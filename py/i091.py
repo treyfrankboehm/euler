@@ -32,7 +32,7 @@ for x1 in range(number):
 #                if point1 != point2 and points not in used and altpoints not in used and isRight(x1,y1,x2,y2): print point1, point2; used.append((point1, point2))
                 #if point1 != point2 and points not in used and isRight(x1,y1,x2,y2): print point1, point2; used.append(points)
                 if point1 != point2 and points not in used and isRight(x1,y1,x2,y2): used.append(points)
-        print x1
+        print(x1)
 
-print len(used)
+print(len(used))
 

@@ -14,4 +14,4 @@ for year in range(1901, 2001):
         n = days[(count % 7 - 1)]
         if n == "Sun": sundayCount += 1
 
-print sundayCount
+print(sundayCount)

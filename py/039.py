@@ -11,4 +11,4 @@ for a in range(1,500):
         t = a + b + hyp(a, b)
         if t <= 1000: hyps.append(t)
 
-print max(set(hyps), key=hyps.count)
+print(max(set(hyps), key=hyps.count))

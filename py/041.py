@@ -4,7 +4,7 @@ import euler
 
 limit = int(1e7)
 
-numbers    = range(limit)
+numbers    = list(range(limit))
 numbers[1] = 0 # 1 is not prime
 
 n = 2
@@ -21,7 +21,7 @@ while n < limit:
     # The last prime under the limit would return an index error
     except:
         continue
-filter(lambda a: a != 0, numbers)
+[a for a in numbers if a != 0]
 
 highest = 0
 count = 1
@@ -30,4 +30,4 @@ while count < limit:
     if euler.isPandigital(prime, len(str(prime))):
         highest = count
     count += 1
-print highest
+print(highest)

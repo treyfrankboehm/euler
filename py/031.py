@@ -30,4 +30,4 @@ while one <= 200:
         two += 1
     one += 1
 
-print total
+print(total)

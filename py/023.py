@@ -13,9 +13,8 @@ for a in abundant:
         if c >= limit:
             break
         nums.append(c)
-#    print a
-        
+
 nums = list(set(nums))
 
-print(sum(range(limit)) - sum(nums))
+print((sum(range(limit)) - sum(nums)))
 
