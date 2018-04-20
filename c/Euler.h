@@ -4,8 +4,11 @@
 #include <math.h>
 #include <stdint.h>
 
+int isPalindrome(int n);
 int isAbundant(int num);
-int sumFactor(int num);
+int numDigits(int n);
+int reverseNum(int n);
 void sieve(uint8_t* factorable, uint32_t upper_limit);
+int sumFactor(int num);
 
 #endif
