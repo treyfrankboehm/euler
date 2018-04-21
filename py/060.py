@@ -31,10 +31,8 @@ def catPrimes(l):
     for x in l:
         for y in l:
             if x == y: break
-#            if not euler.isPrime(int(str(x)+str(y))):
             if not int(str(x)+str(y)) in numbers:
                 return False
-#            if not euler.isPrime(int(str(y)+str(x))):
             if not int(str(y)+str(x)) in numbers:
                 return False
     return True
@@ -54,3 +52,4 @@ for a in numbers:
                     if catPrimes(p):
                         print(a+b+c+d+e)
                         exit()
+

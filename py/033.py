@@ -38,3 +38,4 @@ for num in range(10,100):
 
 f = list(str(Fraction(nums, dens)))
 print(''.join(f[f.index('/')+1:]))
+

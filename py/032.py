@@ -16,3 +16,4 @@ for x in range(2500):
             pandigitals.append(z)
 
 print(sum(pandigitals))
+

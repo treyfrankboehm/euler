@@ -9,3 +9,4 @@ while step < 1001:
         total += on
     step += 2
 print(total)
+

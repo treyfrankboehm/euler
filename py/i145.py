@@ -6,3 +6,4 @@ while count < 1000:
     else: total += 1; print(count)
     count += 1
 print(total)
+

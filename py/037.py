@@ -18,3 +18,4 @@ while total < 11:
     if truncPrime(count): sum += count; total += 1
     count += 1
 print(sum)
+

@@ -9,4 +9,6 @@ for n in range(1,101):
         c = (factorial(n))/(factorial(r)*factorial(n-r))
         if c > 1000000:
             total += 1
+
 print(total)
+

@@ -5,3 +5,4 @@ def fxn(n):
 
 for x in range(10):
     print((fxn(x)))
+

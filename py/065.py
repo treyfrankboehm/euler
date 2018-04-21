@@ -48,3 +48,4 @@ for i in range(len(fractionTerms)):
     prev, on = on, new
 
 print((euler.sumDigits(new)))
+

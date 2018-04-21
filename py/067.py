@@ -120,3 +120,4 @@ def collapse():
 
 while len(triangle) > 0:
     collapse()
+

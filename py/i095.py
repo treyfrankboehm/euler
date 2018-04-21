@@ -10,3 +10,4 @@ limit = int(1e6)
 numFacSumArray = [ [n, (1+sum(euler.factor(n)))] for n in range(2,limit,2)]
 
 print("done")
+

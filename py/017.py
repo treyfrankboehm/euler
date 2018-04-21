@@ -85,3 +85,4 @@ total = 11 # "onethousand" is 11 characters
 for x in range(1,1000):
     total += characters(str(x))
 print(total)
+

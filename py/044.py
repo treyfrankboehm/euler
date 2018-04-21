@@ -12,3 +12,4 @@ for i in range(len(p)):
         if isPentagonal(diff) and isPentagonal(sum):
             print(max((p[i]-p[j]), (p[j]-p[i])))
             exit()
+

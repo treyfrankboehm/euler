@@ -43,3 +43,4 @@ while a < max:
 print(sum(range(max+1)) - sum(set(numbers)))
 print(sum(set(numbers)))
 #print set(numbers)
+

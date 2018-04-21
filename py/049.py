@@ -19,3 +19,4 @@ for x in primes:
             if isPermutation(x, y, z):
                 print(str(x) + str(y) + str(z))
                 break
+

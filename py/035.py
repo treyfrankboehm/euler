@@ -45,3 +45,4 @@ while count < len(numbers):
     if isCircularPrime(numbers[count]): total += 1
     count += 1
 print(total)
+

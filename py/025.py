@@ -10,3 +10,4 @@ while True:
     b = oa
     count += 1
     if len(str(a)) >= 1000: print(count); break
+

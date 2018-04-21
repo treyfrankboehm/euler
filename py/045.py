@@ -12,3 +12,4 @@ while total < 3:
     step += 4
     count += step
 print(count)
+

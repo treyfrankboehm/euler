@@ -24,3 +24,4 @@ while a < upperBound:
 print(triples)
 print((sorted(sums)))
 print((sorted(set(sums))))
+

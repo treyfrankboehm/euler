@@ -11,3 +11,4 @@ while number >= 1:
         if (number - i) == 1: break
     number -= 2
 print(number)
+

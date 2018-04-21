@@ -1,10 +1,12 @@
 #!/usr/bin/env python
 
-from euler import *
+from euler import factor
 
-count = 0
-step = 1
-while True:
-    count += step
+num = 1
+step = 2
+while len(factor(count)) < 500:
+    num += step
     step += 1
-    if len(factor(count)) >= 500: print(count); break
+
+print(num)
+

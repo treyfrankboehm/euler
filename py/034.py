@@ -16,3 +16,4 @@ while count < 100000:
         total += count
     count += 1
 print(total)
+
