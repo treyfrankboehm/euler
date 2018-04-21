@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import glob
-#import os
+import os
 import subprocess as sp
 import sys
 import time
@@ -21,7 +21,7 @@ def testPython(filename):
     return run(compileCmd, runCmd)
 
 def testC(filename):
-    compileCmd = "gcc -lm ./c/Euler.c -o %s.out %s" % (filename, filename)
+    compileCmd = "gcc %s c/Euler.c -lm -o %s.out" % (filename, filename)
     print(compileCmd)
     runCmd = "./%s.out" % filename
     return run(compileCmd, runCmd)
@@ -29,7 +29,7 @@ def testC(filename):
 def run(compileCmd, runCmd):
     sp.run(compileCmd.split(' '))
     start = float(time.perf_counter())
-    child = sp.Popen(runCmd.split(' '), stdout=sp.PIPE)
+    child = sp.Popen(runCmd.split(' '), stdout=sp.PIPE, shell=True)
     result = int(child.communicate()[0])
     run_time = float(time.perf_counter()-start)
     return [result, run_time]

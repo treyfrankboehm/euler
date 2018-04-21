@@ -7,14 +7,14 @@
 
 int collatz(uint64_t num);
 uint64_t factorial(int num);
-int isAbundant(int num);
-int isPalindrome(int num);
-int nChooseK(int n, int k);
-int numDigits(int num);
-int numFactors(int num);
-int reverseNum(int num);
-void sieve(uint8_t* factorable, uint32_t upper_limit);
-int sumFactor(int num);
-int triangular(int n);
+int isAbundant(uint64_t num);
+int isPalindrome(uint64_t num);
+int isPrime(uint64_t num);
+uint64_t nChooseK(int n, int k);
+int numDigits(uint64_t num);
+int numFactors(uint64_t num);
+uint64_t reverseNum(uint64_t num);
+void sieve(uint8_t* factorable, uint64_t upper_limit);
+uint64_t sumFactor(uint64_t num);
 
 #endif

@@ -1,34 +1,24 @@
 #include <stdio.h>
-#include <gmp.h>
 #include <math.h>
-
-int isPrime(int number);
+#include "Euler.h"
 
 int main(void) {
-    /*
-    mpz_t dividend;
-    mpz_t divisor;
-    mpq_t quotient;
-    mpz_init_set_ui(dividend, 600851475143);
-    mpz_init_set_ui(divisor, 2);
-    mpq_init(quotient);
-
-    mpz_clear(dividend);
-    mpz_clear(divisor);
-    mpq_clear(quotient);
-    */
-    printf("%d\n", isPrime(6857));
-
-    return 0;
-}
-
-int isPrime(int number) {
-    int i;
-    for(i = 2; i <= sqrt(number); i++) {
-        if(number % i == 0) {
-            return 0;
+    uint64_t num = 600851475143;
+    uint64_t num_sqrt = (uint64_t)sqrt(num);
+    uint64_t factor, cofactor;
+    uint64_t largest = 0;
+    for (factor = 2; factor < num_sqrt; factor++) {
+        if (num % factor)
+            continue; // not a factor
+        cofactor = num/factor;
+        if (factor > largest && isPrime(factor)) {
+            largest = factor;
+        }
+        if (cofactor > largest && isPrime(cofactor)) {
+            largest = cofactor;
         }
     }
-    return 1;
+    printf("%lu\n", largest);
+    return 0;
 }
 

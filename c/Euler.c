@@ -34,22 +34,33 @@ uint64_t factorial(int num)
 /* isAbundant: Test if the number is abundant (the sum of the factors is
  * greater than the number itself)
  */
-int isAbundant(int num)
+int isAbundant(uint64_t num)
 {
     return (num < sumFactor(num));
 }
 
 /* isPalindrome: Test if the number is a palindrome in decimal */
-int isPalindrome(int num)
+int isPalindrome(uint64_t num)
 {
     return (num == reverseNum(num));
+}
+
+/* isPrime: Naive test for primality */
+int isPrime(uint64_t number) {
+    int i;
+    for (i = 2; i <= sqrt(number); i++) {
+        if(number % i == 0) {
+            return 0;
+        }
+    }
+    return 1;
 }
 
 /* nChooseK: Calculate binomial coefficients. Because of integer size
  * limitations, this is only good up to n = 20. I plan on using gmp to
  * extend this and factorial, at some point.
  */
-int nChooseK(int n, int k)
+uint64_t nChooseK(int n, int k)
 {
     if (k > n || n < 0 || k < 0)
         return 0; /* Restrict to 0 <= k <= n */
@@ -57,7 +68,7 @@ int nChooseK(int n, int k)
 }
 
 /* numDigits: Return the number of digits in an integer */
-int numDigits(int num)
+int numDigits(uint64_t num)
 {
     int len;
     for (len = 0; num > 0; num /= 10) {
@@ -67,10 +78,10 @@ int numDigits(int num)
 }
 
 /* numFactors: Return the number of factors for a number */
-int numFactors(int num)
+int numFactors(uint64_t num)
 {
     int count = 2;
-    int factor, cofactor;
+    uint64_t factor, cofactor;
     for (factor = 2; factor <= sqrt(num); factor++) {
         if (num % factor == 0) {
             cofactor = num / factor;
@@ -86,10 +97,10 @@ int numFactors(int num)
 
 
 /* reverseNum: Reverse the order of the digits in an integer */
-int reverseNum(int num)
+uint64_t reverseNum(uint64_t num)
 {
     int num_digits = numDigits(num);
-    int reversed_num = 0;
+    uint64_t reversed_num = 0;
     int digit;
     int i;
     for (i = num_digits-1; i >= 0; i--) {
@@ -105,7 +116,7 @@ int reverseNum(int num)
  * (called "factorable") that has been initialized to 0, and the length
  * of that array (called "upper_limit")
  */
-void sieve(uint8_t* factorable, uint32_t upper_limit)
+void sieve(uint8_t* factorable, uint64_t upper_limit)
 {
     int i, j;
     factorable[0] = 1;
@@ -118,10 +129,10 @@ void sieve(uint8_t* factorable, uint32_t upper_limit)
 }
 
 /* sumFactor: Return the sum of the factors of an integer */
-int sumFactor(int num)
+uint64_t sumFactor(uint64_t num)
 {
     int sum = 1;
-    int factor, cofactor;
+    uint64_t factor, cofactor;
     for (factor = 2; factor <= sqrt(num); factor++) {
         if (num % factor == 0) {
             cofactor = num / factor;
@@ -133,11 +144,5 @@ int sumFactor(int num)
         }
     }
     return sum;
-}
-
-/* triangular: Return the nth triangular number */
-int triangular(int n)
-{
-    return n*(n+1)/2;
 }
 

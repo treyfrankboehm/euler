@@ -17,14 +17,14 @@ int main(void)
             product = maxProduct(grid, x, y);
             max = product > max ? product : max;
         }
-    } 
+    }
     printf("%d\n", max);
     return 0;
 }
 
 void initializeGrid(uint8_t* grid)
 {
-    FILE* grid_file = fopen("grid_011.txt", "r");
+    FILE* grid_file = fopen("/home/trey/code/euler/c/grid_011.txt", "r");
     int i;
     char number[4];
     for (i = 0; i < 400; i++) {
