@@ -10,11 +10,11 @@ int collapse(int* nums);
  * ahead of time. Even this could be calculated from the file, but I
  * feel that's unnecessary.
  */
-static unsigned int TRIANGLE_HEIGHT = 15;
+static unsigned int TRIANGLE_HEIGHT = 100;
 
 int main(void)
 {
-    FILE* fp = fopen("p018_triangle.txt", "r");
+    FILE* fp = fopen("p067_triangle.txt", "r");
     int* nums = populate(fp);
     fclose(fp);
     printf("%d\n", collapse(nums));
@@ -65,7 +65,7 @@ int* populate(FILE* fp)
 /* collapse: Generate the solution by starting at the bottom of the
  * triangle and collapsing it up. Every number requires two comparisons
  * (a max of two operation) so no searching is necessary. This solution
- * scales with size, eg for problem 67.
+ * scales with size (from problem 18 to 67).
  */
 int collapse(int* nums)
 {
